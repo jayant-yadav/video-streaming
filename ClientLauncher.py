@@ -21,7 +21,7 @@ if __name__ == "__main__":
 	serverAddr="localhost"
 	serverPort=5000
 	rtpPort=30000
-	fileName="out1.Mjpeg"
+	fileName="out.Mjpeg"
 	# Create a new client
 	app = Client(root, serverAddr, serverPort, rtpPort, fileName)
 	app.master.title("RTPClient")	

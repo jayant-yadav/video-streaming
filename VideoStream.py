@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
-cap = cv2.VideoCapture('out.Mjpeg')
+import os
+cap = cv2.VideoCapture('out2.Mjpeg')
 class VideoStream:
 	def __init__(self, filename):
 		self.filename = filename
@@ -13,6 +14,8 @@ class VideoStream:
 		
 	def nextFrame(self):
 		"""Get next frame."""
+		ret,frame=cap.read()
+		cv2.imwrite('temp.jpg',frame)
 		#data = self.file.read(5) # Get the framelength from the first 5 bits
 		#if data:
  		#	framelength = int(data)
@@ -23,8 +26,7 @@ class VideoStream:
 		#	data= self.file.read(framelength)
 		#f.close()
 	#		f.close()
-		ret,frame=cap.read()
-		cv2.imwrite('temp.jpg',frame)
+		
 		f= open('temp.jpg','rb')
 #leng=f.read(5)
 		q=open('temp.Mjpeg','wb')
@@ -34,8 +36,8 @@ class VideoStream:
 		f=open('temp.Mjpeg','rb')
 		data=f.read()
 		f.close()
-
-
+		if ret==False:
+			cap.release()
 		self.frameNum += 1
 		return data
 		
