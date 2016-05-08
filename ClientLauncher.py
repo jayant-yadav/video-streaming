@@ -20,8 +20,8 @@ if __name__ == "__main__":
 	serverAddr="localhost"
 	#serverAddr="192.168.43.170"
 	serverPort=5001
-	rtpPort=30000
-	fileName="out.Mjpeg"
+	rtpPort=30009
+	fileName="movie"
 	app = Client(root, serverAddr, serverPort, rtpPort, fileName)
 	app.master.title("RTPClient")	
 	root.mainloop()
